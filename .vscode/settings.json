@@ -9,7 +9,8 @@
     "Lua.diagnostics.disable": [
         "lowercase-global",
         "need-check-nil",
-        "undefined-global"
+        "undefined-global",
+        "undefined-field"
     ],
     "cSpell.words": [
         "onoff",
