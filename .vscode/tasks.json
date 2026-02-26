@@ -1,0 +1,54 @@
+{   
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Run Reaper Script",
+            "type": "shell",
+            "command": "/Applications/REAPER.app/Contents/MacOS/REAPER",
+            "args": [
+		        "-nonewinst",
+                "${file}"
+            ],
+            "problemMatcher": [],
+        },
+
+        {
+            "label": "Debub Script",
+            "command": "${command:workbench.action.debug.start}"
+        },
+        
+        {
+            "label": "Debug and Run Reaper Script",
+            "dependsOrder": "parallel",
+            "dependsOn":[
+                "Debub Script",
+                "Run Reaper Script"
+            ],
+            "problemMatcher": []
+        },
+
+        {
+            "label": "Focus Reaper",
+            "type": "shell",
+            "command": "open",
+            "args": [
+                "-a",
+                "/Applications/REAPER.app/Contents/MacOS/REAPER"
+            ],
+            "problemMatcher": [],
+            "presentation":{
+                "echo": true,
+                "reveal": "never",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": false
+            }
+        },
+        {
+            "label": "Run Reaper Script and Focus",
+            "dependsOn": ["Run Reaper Script", "Focus Reaper"]
+        }
+
+    ]
+}
